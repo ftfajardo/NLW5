@@ -2,12 +2,17 @@ import { Router } from "express";
 import { getCustomRepository } from "typeorm";
 import { SettingsRepository } from "./repositories/SettingsRepository";
 import { SettingsController } from "./controllers/SettingsController";
+import { UsersController } from "./controllers/UsersController";
+import { MessagesController } from "./controllers/MessagesController";
 
-const routes = Router()
-const SettingsControl = new SettingsController()
-
-routes.post("/settings", SettingsControl.create)
-
+const routes = Router();
+const SettingsControl = new SettingsController();
+const UsersControl = new UsersController();
+const MessagesControl = new MessagesController();
+routes.post("/settings", SettingsControl.create);
+routes.post("/users", UsersControl.create);
+routes.post("/messages", MessagesControl.create);
+routes.get("/messages/:id", MessagesControl.showByUser);
 export { routes };
 /*
   Tipos de parametros:
