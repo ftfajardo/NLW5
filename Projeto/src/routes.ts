@@ -10,6 +10,9 @@ const SettingsControl = new SettingsController();
 const UsersControl = new UsersController();
 const MessagesControl = new MessagesController();
 routes.post("/settings", SettingsControl.create);
+routes.get("/settings/:username", SettingsControl.findByUsername);
+routes.put("/settings/:username", SettingsControl.update);
+
 routes.post("/users", UsersControl.create);
 routes.post("/messages", MessagesControl.create);
 routes.get("/messages/:id", MessagesControl.showByUser);

@@ -32,6 +32,12 @@ class UserService {
     return user;
   }
 
+  async findByEmail(email: string) {
+    const user = await this.UserRep.findOne({ email });
+
+    return user;
+  }
+
 
 }
 
